@@ -51,7 +51,7 @@ GATEWAY_PORT = 4204
 class SSHTunnel(object):
     def __init__(self, bridge_user, bridge_host, dest_host, dest_port=22, local_port=GATEWAY_PORT):
         self.local_port = local_port
-        cmd = 'ssh -Nqttv -oStrictHostKeyChecking=no -L {}:{}:{} {}@{}'.format(
+        cmd = 'ssh -Nqtt -oStrictHostKeyChecking=no -L {}:{}:{} {}@{}'.format(
             local_port, dest_host, dest_port, bridge_user, bridge_host)
         self.p = subprocess.Popen(shlex.split(cmd))
         time.sleep(2)
